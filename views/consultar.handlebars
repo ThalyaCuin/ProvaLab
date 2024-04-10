@@ -1,0 +1,57 @@
+<div class="container">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SISTEMA WEB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Cadastrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/consultar">Consultar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <p class="fs-5">Cadastrar - Agendamento de Potencial Clientes</p>
+    <p class="fs-6">Sistema Utilizado para agendamento de serviços.</p>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-info">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each clientes}}
+                    {{#dataValues}}
+                    <tr>
+                        <td>{{this.nome}}</td>
+                        <td>{{this.cep}}</td>
+                        <td>{{this.endereco}}</td>
+                        <td>{{this.bairro}}</td>
+                        <td>{{this.cidade}}</td>
+                        <td>{{this.estado}}</td>
+                        <td>
+                            <a href="/atualizar/{{this.id}}" class="btn btn-primary">Editar</a>
+                            <a href="/deletar/{{this.id}}" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                    {{/dataValues}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
